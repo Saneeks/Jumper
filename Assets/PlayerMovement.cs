@@ -38,11 +38,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase != TouchPhase.Began)
-            {
-                rb.gravityScale = 6;
-            }
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began && JumpsLeft > 0)
             {
                 rb.AddForce(transform.up * force, ForceMode2D.Impulse);
                 JumpsLeft--;
